@@ -1,73 +1,110 @@
-# QSlay project
+# QSlay QR Code Generator
 
-## Project info
+A modern, user-friendly web application for generating customized QR codes. Built with React, TypeScript, and styled with TailwindCSS and shadcn/ui components.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🌟 Features
 
-## How can I edit this code?
+- **Simple URL to QR Code**: Enter any URL and instantly generate a QR code
+- **Customizable Colors**: Choose custom colors for both the QR code pattern (foreground) and background
+- **Visual Preview**: See your QR code in real-time as you make changes
+- **Download Ready**: Generated QR codes are displayed as images ready for download
+- **Modern UI**: Clean, responsive interface with smooth animations
+- **Fast Generation**: Quick QR code generation using a reliable API
 
-There are several ways of editing your application.
+## 🚀 Quick Start
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Make sure you have Node.js and npm installed on your machine. If not, [install Node.js with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/faizulr/qslay-qr-generator.git
+   cd qslay-qr-generator
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-Follow these steps:
+4. **Open your browser**
+   
+   Navigate to the URL shown in your terminal (typically `http://localhost:5173`)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🎯 How to Use
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. **Enter a URL**: Type or paste any URL into the input field
+2. **Customize Colors** (Optional):
+   - Click on the "Vibe Color (Foreground)" picker to change the QR code pattern color
+   - Click on the "Chill Color (Background)" picker to change the background color
+3. **Generate**: Click the "SLAY IT 🔥" button
+4. **Download**: Right-click on the generated QR code image and save it
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Built With
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+- **[React](https://react.dev/)** - UI framework
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Vite](https://vitejs.dev/)** - Fast build tool and dev server
+- **[TailwindCSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[shadcn/ui](https://ui.shadcn.com/)** - Re-usable component library
+- **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible components
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint to check code quality
+
+## 🏗️ Project Structure
+
+```
+qslay-qr-generator/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page components
+│   ├── services/       # API services (QR code generation)
+│   ├── lib/            # Utility functions
+│   └── hooks/          # Custom React hooks
+├── public/             # Static assets
+└── ...
 ```
 
-**Edit a file directly in GitHub**
+## 🔧 Configuration
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The QR code generation uses a backend API. The API endpoint is configured in:
+- `src/services/qrApi.ts`
 
-**Use GitHub Codespaces**
+The current implementation uses the QSlay backend API for generating QR codes.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🤝 Contributing
 
-## What technologies are used for this project?
+Contributions are welcome! Feel free to:
 
-This project is built with:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📄 License
 
-## How can I deploy this project?
+This project is open source and available under the MIT License.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🙏 Acknowledgments
 
-## Can I connect a custom domain to my Lovable project?
+- Built using the [QSlay](https://qslay.onrender.com/) platform
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Icons and styling with TailwindCSS
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Made with ❤️ by [faizulr](https://github.com/faizulr)**
