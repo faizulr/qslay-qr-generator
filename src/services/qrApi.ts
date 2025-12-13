@@ -1,4 +1,4 @@
-const API_ENDPOINT = "https://9c13c97c-9b3c-4175-ab60-d4084fc121e8-00-32xe56phizahc.picard.replit.dev/api/generate";
+const API_ENDPOINT = "https://qslay-backend.onrender.com/api/generate";
 
 interface GenerateQRRequest {
   url: string;
