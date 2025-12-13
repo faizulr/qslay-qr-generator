@@ -79,7 +79,7 @@ const Index = () => {
                 placeholder="https://..."
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="h-14 px-4 text-base bg-input border-border focus:ring-2 focus:ring-ring transition-all"
+                className="h-14 px-4 text-base bg-white/5 border border-white/20 focus:ring-2 focus:ring-ring transition-all"
               />
             </div>
 
@@ -101,7 +101,7 @@ const Index = () => {
             <Button
               onClick={handleGenerate}
               disabled={isLoading}
-              className="w-full h-16 text-xl font-bold bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl neon-glow animate-pulse-glow transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100"
+              className="w-full h-16 text-xl font-bold bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-400 hover:to-fuchsia-400 text-white rounded-xl neon-glow transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
             >
               {isLoading ? "SLAYING..." : "SLAY IT 🔥"}
             </Button>
