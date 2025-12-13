@@ -18,27 +18,43 @@ export async function generateQRCode(
   fillColor: string,
   bgColor: string
 ): Promise<string> {
-  const response = await fetch(API_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      url,
-      fill_color: fillColor,
-      bg_color: bgColor,
-    } as GenerateQRRequest),
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
 
-  if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
+  try {
+    const response = await fetch(API_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        url,
+        fill_color: fillColor,
+        bg_color: bgColor,
+      } as GenerateQRRequest),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
+    const data: GenerateQRResponse = await response.json();
+
+    if (data.status !== "success") {
+      throw new Error("QR generation failed");
+    }
+
+    return data.data.image_base64;
+  } catch (error) {
+    clearTimeout(timeoutId);
+
+    if (error instanceof Error && error.name === "AbortError") {
+      throw new Error("TIMEOUT");
+    }
+
+    throw error;
   }
-
-  const data: GenerateQRResponse = await response.json();
-  
-  if (data.status !== "success") {
-    throw new Error("QR generation failed");
-  }
-
-  return data.data.image_base64;
 }

@@ -36,11 +36,19 @@ const Index = () => {
         description: "Your QR code is ready to slay.",
       });
     } catch (error) {
-      toast({
-        title: "That's not it 😬",
-        description: "Something went wrong. Try again?",
-        variant: "destructive",
-      });
+      if (error instanceof Error && error.message === "TIMEOUT") {
+        toast({
+          title: "Server Timeout ⏰",
+          description: "The server is waking up... please try again in 10 seconds!",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "That's not it 😬",
+          description: "Something went wrong. Try again?",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsLoading(false);
     }
