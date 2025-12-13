@@ -36,7 +36,7 @@ const Index = () => {
         description: "Your QR code is ready to slay.",
       });
     } catch (error) {
-      if (error instanceof Error && error.message === "TIMEOUT") {
+      if (error instanceof Error && error.message === "SERVER_WAKING_UP") {
         toast({
           title: "Server Timeout ⏰",
           description: "The server is waking up... please try again in 10 seconds!",

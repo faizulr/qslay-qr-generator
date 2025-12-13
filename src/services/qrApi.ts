@@ -51,8 +51,10 @@ export async function generateQRCode(
   } catch (error) {
     clearTimeout(timeoutId);
 
-    if (error instanceof Error && error.name === "AbortError") {
-      throw new Error("TIMEOUT");
+    if (error instanceof Error) {
+      if (error.name === "AbortError" || error.message.includes("Failed to fetch")) {
+        throw new Error("SERVER_WAKING_UP");
+      }
     }
 
     throw error;
