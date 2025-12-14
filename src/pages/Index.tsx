@@ -68,7 +68,7 @@ const Index = () => {
             QSlay
           </h1>
           <p className="text-xl lg:text-2xl text-muted-foreground font-medium">
-            Make your links slaps.
+            QR codes that hit different.
           </p>
         </header>
 
