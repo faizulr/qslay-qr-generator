@@ -15,6 +15,15 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
+  const isValidHttpsUrl = (input: string): boolean => {
+    try {
+      const urlObj = new URL(input.trim());
+      return urlObj.protocol === "https:";
+    } catch {
+      return false;
+    }
+  };
+
   const handleGenerate = async () => {
     if (!url.trim()) {
       toast({
@@ -25,6 +34,14 @@ const Index = () => {
       return;
     }
 
+    if (!isValidHttpsUrl(url)) {
+      toast({
+        title: "Secure links only! 🔒",
+        description: "Please enter a valid HTTPS URL (e.g., https://example.com)",
+        variant: "destructive",
+      });
+      return;
+    }
     setIsLoading(true);
     setQrImage(null);
 
